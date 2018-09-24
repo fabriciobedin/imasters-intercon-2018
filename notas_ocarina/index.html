@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://p5js.org/assets/examples/example.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="./p5.min.js"></script>
+    <script type="text/javascript" src="./p5.dom.min.js"></script>
+    <script type="text/javascript" src="./p5.sound.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+    <style>
+      html, body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        background:white;
+      }
+    </style>
+    <script>
+      var config = {
+            apiKey: "AIzaSyDIuJ1xQAizRbG0i7OgrEYf7VAw_9UWtDk",
+            authDomain: "intercon-c43d2.firebaseapp.com",
+            databaseURL: "https://intercon-c43d2.firebaseio.com",
+            projectId: "intercon-c43d2",
+            storageBucket: "intercon-c43d2.appspot.com",
+            messagingSenderId: "921263850776"
+        };
+        firebase.initializeApp(config);
+      var database = firebase.database();
+    </script>
+  </head>
+  <body>
+  
+
+<script type="text/javascript">var mic, fft;
+function setup() {
+   createCanvas(710,400);
+   noFill();
+   mic = new p5.AudioIn();
+   mic.start();
+   fft = new p5.FFT();
+   fft.setInput(mic);
+}
+function draw() {
+   background(200);
+   var spectrum = fft.analyze();
+   beginShape();
+   for (i = 0; i<spectrum.length; i++) {
+     if (spectrum[i] > 250){
+        console.log(i);
+        if (i == 17){
+          firebase.database().ref().set({
+            nota: "Nota Do "
+          });
+        } else if (i == 18) {
+          firebase.database().ref().set({
+            nota: "Nota Re "
+          });
+        }  else if (i == 21) {
+          firebase.database().ref().set({
+            nota: "Nota Mi "
+          });
+        } else if (i == 24) {
+          firebase.database().ref().set({
+            nota: "Nota Fa "
+          });
+        } else if (i == 26) {
+          firebase.database().ref().set({
+            nota: "Nota Sol"
+          });
+        } else if (i == 28) {
+          firebase.database().ref().set({
+            nota: "Nota La "
+          });
+        } else if (i == 30) {
+          firebase.database().ref().set({
+            nota: "Nota Si "
+          });
+        }
+     }
+    vertex(i, map(spectrum[i], 0, 255, height, 0) );
+   }
+   endShape();
+}
+new p5();</script><canvas id="defaultCanvas0" width="1420" height="800" style="width: 710px; height: 400px;"></canvas></body></html>
