@@ -1,13 +1,17 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/control-panel-react/node_modules
+/PainelControleReact/node_modules
+/ArduinoControleServidor/node_modules
+
 
 # testing
-/control-panel-react/coverage
+/PainelControleReact/coverage
+/ArduinoControleServidor/coverage
 
 # production
-/control-panel-react/build
+/PainelControleReact/build
+/ArduinoControleServidor/build
 
 # misc
 .DS_Store
@@ -20,3 +24,4 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 yarn.lock
+package-lock.json
