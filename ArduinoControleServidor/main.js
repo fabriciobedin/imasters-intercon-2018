@@ -1,13 +1,14 @@
 require("./src/firebase");
 var five = require("johnny-five");
-var board = new five.Board();
 
 var statusPortaRack = require("./src/statusPortaRack");
+var statusEnergia = require("./src/statusEnergia");
 
 
-board.on("ready", function() {
+five.Board().on("ready", function() {
 
-      statusPortaRack.verificar();
+      statusPortaRack.executar();
 
-  
+      statusEnergia.executar();
+
 });

@@ -9,10 +9,6 @@ var config = {
     messagingSenderId: "921263850776"
   };
 
-  fb.initializeApp(config);
-// exports.inicializarFirebase = function () {
-//     fb.initializeApp(config);
-//     console.log("Firebase iniciado!");
-// }
+fb.initializeApp(config);
 
 exports.firebase = fb;

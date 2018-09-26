@@ -1,3 +1,3 @@
-exports.falar = function () {
+exports.teste = function () {
     console.log("teste");
 }

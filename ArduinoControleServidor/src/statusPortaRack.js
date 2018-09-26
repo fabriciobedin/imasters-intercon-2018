@@ -1,40 +1,36 @@
 var five = require("johnny-five");
 var firebase = require("./firebase").firebase;
 
-exports.verificar = function(){
-      var sensorPorta = new five.Button({
-            pin: 4, 
-            invert: true
-      });
+exports.executar = function(){
 
-      sensorPorta.on("press", function() {
+      var sensorPorta = new five.Switch(4);
 
-            var horarioCompleto = gerarLogData();
-      
-            console.log( horarioCompleto + " - Abriu Porta Rack" );
-            firebase.database().ref('sensorPortaRack').set({
-                  status : 1,
-                  horarioAbriu : horarioCompleto
-            })
-
-            // firebase.database().ref('horarioPortaRackAbriu').set({
-            //       horario : horarioCompleto
-            // })
-      });
-
-      sensorPorta.on("release", function() {
-
+      sensorPorta.on("open", function() {
+            
             var horarioCompleto = gerarLogData();
 
             console.log( horarioCompleto + " - Fechou Porta Rack" );
             firebase.database().ref('sensorPortaRack').set({
-                  status : 0,
-                  horarioFechou : horarioCompleto  
+                  status : 0
             })
 
-            // firebase.database().ref('horarioPortaRackFechou').set({
-            //       horario : horarioCompleto        
-            // })
+            firebase.database().ref('horarioPortaRackFechou').set({
+                  horario : horarioCompleto        
+            })
+      });
+
+      sensorPorta.on("close", function() {
+            
+            var horarioCompleto = gerarLogData();
+
+            console.log( horarioCompleto + " - Abriu Porta Rack" );
+            firebase.database().ref('sensorPortaRack').set({
+                  status : 1
+            })
+
+            firebase.database().ref('horarioPortaRackAbriu').set({
+                  horario : horarioCompleto
+            })
       });
 
 }
