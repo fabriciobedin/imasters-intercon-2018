@@ -1,3 +1,30 @@
-exports.teste = function () {
-    console.log("teste");
+var five = require("johnny-five");
+var firebase = require("./util/firebaseConfig").firebase;
+var horarioCompleto = require("./util/horarioCompleto");
+
+exports.verificar = function(){
+
+      var status = new five.Switch(22);
+      status.on("open", function() {
+            console.log( horarioCompleto.getHorario() + " - Servidor foi desligado!" );
+            firebase.database().ref('servidor').child('status').set({
+                  status : 0
+            })
+
+            firebase.database().ref('servidor').child('horarioDesligou').set({
+                  horario : horarioCompleto.getHorario()        
+            })
+      });
+
+      status.on("close", function() {
+            console.log( horarioCompleto.getHorario() + " - Servidor está sendo iniciado..." );
+            firebase.database().ref('servidor').child('status').set({
+                  status : 1
+            })
+
+            firebase.database().ref('servidor').child('horarioLigou').set({
+                  horario : horarioCompleto.getHorario()
+            })
+      });
 }
+
