@@ -6,20 +6,25 @@ var teste = 0;
 exports.verificar = function(){
     var thermometer = new five.Thermometer({
         controller: "DS18B20",
-        pin: 2
+        pin: 13,
+        freq: 5000
     });
 
     thermometer.on("change", function() {
         var value = parseInt(this.celsius);
         
-        if ((teste != value) && (teste != value+1) && (teste != value-1)){
+        if (teste != value){
             teste = value;
 
-            firebase.database().ref('temperatura').set({
-                temperatura : value
+            firebase.database().ref('temperatura').child('temperatura').set({
+                celsius : value
             })
 
-            console.log( value + "°C" );
+            firebase.database().ref('temperatura').child('horario').set({
+                horario : horarioCompleto.getHorario()
+            })
+
+            console.log( horarioCompleto.getHorario() + " - Temperatura: " + value + "°C" );
         }
     });
 }

@@ -4,9 +4,9 @@ var horarioCompleto = require("./util/horarioCompleto");
 
 exports.verificar = function(){
 
-      var status = new five.Switch(22);
-      status.on("open", function() {
-            console.log( horarioCompleto.getHorario() + " - Servidor foi desligado!" );
+      var status = new five.Switch(23);
+      status.on("close", function() {
+            console.log( horarioCompleto.getHorario() + " - Servidor desligado" );
             firebase.database().ref('servidor').child('status').set({
                   status : 0
             })
@@ -16,8 +16,8 @@ exports.verificar = function(){
             })
       });
 
-      status.on("close", function() {
-            console.log( horarioCompleto.getHorario() + " - Servidor está sendo iniciado..." );
+      status.on("open", function() {
+            console.log( horarioCompleto.getHorario() + " - Servidor ligado" );
             firebase.database().ref('servidor').child('status').set({
                   status : 1
             })

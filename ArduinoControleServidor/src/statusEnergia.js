@@ -17,14 +17,24 @@ exports.verificar = function(){
             teste = value;
 
             if(value >= 3){
-                firebase.database().ref('sensorEnergia').set({
-                    luz : true
+                firebase.database().ref('sensorEnergia').child('status').set({
+                    status : 1
                 })
+
+                firebase.database().ref('sensorEnergia').child('horarioRetornouLuz').set({
+                    horario : horarioCompleto.getHorario()
+                })
+
                 console.log( horarioCompleto.getHorario() + " - Energia OK!" );
             } else {
-                firebase.database().ref('sensorEnergia').set({
-                    luz : false
+                firebase.database().ref('sensorEnergia').child('status').set({
+                    status : 0
                 })
+
+                firebase.database().ref('sensorEnergia').child('horarioFaltouLuz').set({
+                    horario : horarioCompleto.getHorario()
+                })
+
                 console.log( horarioCompleto.getHorario() + " - Sem energia!" );
 
             }
