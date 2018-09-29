@@ -1,17 +1,14 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/PainelControleReact/node_modules
-/ArduinoControleServidor/node_modules
-
+*/node_modules
 
 # testing
-/PainelControleReact/coverage
-/ArduinoControleServidor/coverage
+*/coverage
 
 # production
-/PainelControleReact/build
-/ArduinoControleServidor/build
+*/build
+
 
 # misc
 .DS_Store
@@ -20,22 +17,21 @@
 .env.test.local
 .env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-yarn.lock
-package-lock.json
+*/npm-debug.log*
+*/yarn-debug.log*
+*/yarn-error.log*
+*/yarn.lock
+*/package-lock.json
 
 
 #Android
 *.iml
 .gradle
-/PainelControleAndroid/local.properties
-/PainelControleAndroid/.idea/libraries
-/PainelControleAndroid/.idea/modules.xml
-/PainelControleAndroid/.idea/workspace.xml
+*/local.properties
+*/.idea/libraries
+*/.idea/modules.xml
+*/.idea/workspace.xml
 .DS_Store
-/PainelControleAndroid/build
 /PainelControleAndroid/captures
 .externalNativeBuild
 
