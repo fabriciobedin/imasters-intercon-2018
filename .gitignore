@@ -25,3 +25,17 @@ yarn-debug.log*
 yarn-error.log*
 yarn.lock
 package-lock.json
+
+
+#Android
+*.iml
+.gradle
+/PainelControleAndroid/local.properties
+/PainelControleAndroid/.idea/libraries
+/PainelControleAndroid/.idea/modules.xml
+/PainelControleAndroid/.idea/workspace.xml
+.DS_Store
+/PainelControleAndroid/build
+/PainelControleAndroid/captures
+.externalNativeBuild
+
