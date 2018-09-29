@@ -1,6 +1,6 @@
 var five = require("johnny-five"), relay;
 var firebase = require("./util/firebaseConfig").firebase;
-var horarioCompleto = require("./util/horarioCompleto");
+var horarioCompleto = require("./util/time");
 
 exports.iniciar = function(){
 

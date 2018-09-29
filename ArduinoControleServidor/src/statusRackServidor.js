@@ -1,6 +1,6 @@
 var five = require("johnny-five");
 var firebase = require("./util/firebaseConfig").firebase;
-var horarioCompleto = require("./util/horarioCompleto");
+var horarioCompleto = require("./util/time");
 
 exports.verificar = function(){
 

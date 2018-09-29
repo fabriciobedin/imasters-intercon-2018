@@ -1,6 +1,6 @@
 var five = require("johnny-five"), relay;
 var firebase = require("./util/firebaseConfig").firebase;
-var horarioCompleto = require("./util/horarioCompleto");
+var horarioCompleto = require("./util/time");
 var refStatusServidor = firebase.database().ref("servidor/status").child('status');
 var refControleServidor = firebase.database().ref("servidor/controle");
 var statusServidor = 3;

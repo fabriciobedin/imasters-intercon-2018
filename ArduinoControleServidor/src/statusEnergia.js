@@ -1,6 +1,6 @@
 var five = require("johnny-five"), photoresistor;
 var firebase = require("./util/firebaseConfig").firebase;
-var horarioCompleto = require("./util/horarioCompleto");
+var horarioCompleto = require("./util/time");
 var teste = 0;
 
 exports.verificar = function(){
