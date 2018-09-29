@@ -1,7 +1,10 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from './styles';
-import {SensorEnergia} from '../SensorEnergia/SensorEnergia';
+import {Servidor} from '../Servidor/Servidor';
+import {Sensores} from '../Sensores/Sensores';
+import {Graficos} from '../Graficos/Graficos';
+import {Ocarina} from '../Ocarina/Ocarina';
 import SignIn from '../SignIn/SignIn';
 
 import { Route } from 'react-router-dom';
@@ -14,7 +17,10 @@ class Dashboard extends React.Component {
       <main className={classes.main}>
         <div className={classes.appBarSpacer} />
         
-        <Route path="/sensorenergia" component={SensorEnergia}/>
+        <Route path="/servidor" component={Servidor}/>
+        <Route path="/sensores" component={Sensores}/>
+        <Route path="/graficos" component={Graficos}/>
+        <Route path="/ocarina" component={Ocarina}/>
         <Route path="/signin" component={SignIn}/>
       </main>
     );

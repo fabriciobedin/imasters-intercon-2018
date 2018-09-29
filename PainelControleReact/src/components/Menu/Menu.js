@@ -7,10 +7,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ServidorIcon from '@material-ui/icons/Dns';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import PeopleIcon from '@material-ui/icons/People';
-import BarChartIcon from '@material-ui/icons/BarChart';
-import LayersIcon from '@material-ui/icons/Layers';
+import Sensor from '@material-ui/icons/Memory';
+import Grafico from '@material-ui/icons/Timeline';
+import Som from '@material-ui/icons/Hearing';
 import {Link } from 'react-router-dom';
 
 
@@ -20,53 +19,52 @@ const divStyle = {
 
 class Menu extends React.Component {
 
-  render() {
+render() {
     const { classes } = this.props;
     return (
       <div>
         <Drawer variant="permanent">
-        <div className={classes.toolbarSpace} />
-        <List>
-          <div style={divStyle}>
-          <Link to="/sensorenergia">
-                <ListItem button >
-                    <ListItemIcon>
-                    <ServidorIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Servidor" />
-                </ListItem>
-                </Link>
+            <div className={classes.toolbarSpace} />
+                <List>
+                    <div style={divStyle}>
+                        <Link to="/servidor">
+                            <ListItem button >
+                                <ListItemIcon>
+                                    <ServidorIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Servidor" />
+                            </ListItem>
+                        </Link>
 
-                <Link to="/signin">
-                <ListItem button>
-                    <ListItemIcon>
-                    <ShoppingCartIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Orders" />
-                </ListItem>
-                </Link>
+                        <Link to="/sensores">
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <Sensor />
+                                </ListItemIcon>
+                                <ListItemText primary="Sensores" />
+                            </ListItem>
+                        </Link>
 
-                <ListItem button>
-                <ListItemIcon>
-                    <PeopleIcon />
-                </ListItemIcon>
-                <ListItemText primary="Customers" />
-                </ListItem>
-                <ListItem button>
-                <ListItemIcon>
-                    <BarChartIcon />
-                </ListItemIcon>
-                <ListItemText primary="Reports" />
-                </ListItem>
-                <ListItem button>
-                <ListItemIcon>
-                    <LayersIcon />
-                </ListItemIcon>
-                <ListItemText primary="Integrations" />
-                </ListItem>
-          </div>
-          </List>
-        </Drawer>
+                        <Link to="/graficos">
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <Grafico />
+                                </ListItemIcon>
+                                <ListItemText primary="Gráficos" />
+                            </ListItem>
+                        </Link>
+
+                        <Link to="/ocarina">
+                            <ListItem button>
+                            <ListItemIcon>
+                                <Som />
+                            </ListItemIcon>
+                            <ListItemText primary="Ocarina" />
+                            </ListItem>
+                        </Link>
+                    </div>
+                </List>
+            </Drawer>
         </div>
         
     );
