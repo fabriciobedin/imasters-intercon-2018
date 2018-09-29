@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "921263850776",
+    "firebase_url": "https://intercon-c43d2.firebaseio.com",
+    "project_id": "intercon-c43d2",
+    "storage_bucket": "intercon-c43d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921263850776:android:60373410e949cea4",
+        "android_client_info": {
+          "package_name": "io.github.fabriciobedin.painelcontroleandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "921263850776-rm89nem6takf5khavbooscb7226bibne.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.github.fabriciobedin.painelcontroleandroid",
+            "certificate_hash": "5c571ba4600a9e4c69342c4c8238bd3366800ae8"
+          }
+        },
+        {
+          "client_id": "921263850776-6v8r3u72ag4gbn7aujc71vhhrt9ko4t7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBstm9Q5nLdVPxDBsmSuWjeFEjKHBe67E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "921263850776-6v8r3u72ag4gbn7aujc71vhhrt9ko4t7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
