@@ -16,6 +16,14 @@ navigator.getMedia = ( navigator.getUserMedia ||
                       navigator.mozGetUserMedia ||
                       navigator.msGetUserMedia);
 
+var database = firebase.database();
+var rackRef = firebase.database().ref('rackServidor/status/status');
+rackRef.on('value', function(snapshot) {
+  if (snapshot.val() == 1);{
+    startCamera();
+  }
+});
+
 
 if(!navigator.getMedia){
   displayErrorMessage("Your browser doesn't have support for the navigator.getUserMedia interface.");
@@ -49,14 +57,14 @@ else{
 
 }
 
-
+start_camera.addEventListener("click", function(e){
+  e.preventDefault();
+  start_camera();
+});
 
 // Mobile browsers cannot play video without user input,
 // so here we're using a button to start it manually.
-start_camera.addEventListener("click", function(e){
-
-  e.preventDefault();
-
+function startCamera(){
   // Start video playback manually.
   video.play();
   showVideo();
@@ -71,21 +79,14 @@ start_camera.addEventListener("click", function(e){
     '#camera-stream', 
     tracker, 
     { camera: false });
-  tracker.on('track', function (event) {
-    //  context.clearRect(0, 0, canvas.width, canvas.height);
-      event.data.forEach(function (rect) {
+      tracker.on('track', function (event) {
+        event.data.forEach(function (rect) {
         console.log("achou rosto");
         takePhoto();
-      //    context.strokeStyle = '#a64ceb';
-      //    context.strokeRect(rect.x, rect.y, rect.width, rect.height);
-      //    context.font = '11px Helvetica';
-      //    context.fillStyle = "#fff";
-      //    context.fillText('x: ' + rect.x + 'px', rect.x + rect.width + 5, rect.y + 11);
-      //    context.fillText('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22);
       });
   });
 
-});
+};
 
 var lastSelfie = 0;
 
