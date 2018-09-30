@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="build/tracking-min.js"></script>
+    <script src="build/data/face-min.js"></script>
+    
+    <link rel="stylesheet" href="stylesheet.css">
+
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    // TODO: Replace with your project's customized code snippet
+    var config = {
+        apiKey: "AIzaSyDIuJ1xQAizRbG0i7OgrEYf7VAw_9UWtDk",
+        authDomain: "intercon-c43d2.firebaseapp.com",
+        databaseURL: "https://intercon-c43d2.firebaseio.com",
+        projectId: "intercon-c43d2",
+        storageBucket: "intercon-c43d2.appspot.com",
+        messagingSenderId: "921263850776"
+    };
+    firebase.initializeApp(config);
+    </script>
+
+    </link>
+</head>
+
+<body>
+    <h3>Demo: Take a Selfie With JavaScript</h3>
+
+    <div class="container">
+
+        <div class="app">
+
+            <a href="#" id="start-camera" class="visible">Touch here to start the app.</a>
+            <video id="camera-stream"></video>
+            <img id="snap">
+
+            <p id="error-message"></p>
+
+            <div class="controls">
+                <a href="#" id="delete-photo" title="Delete Photo" class="disabled"><i class="material-icons">delete</i></a>
+                <a href="#" id="take-photo" title="Take Photo"><i class="material-icons">camera_alt</i></a>
+                <a href="#" id="download-photo" download="selfie.png" title="Save Photo" class="disabled"><i class="material-icons">file_download</i></a>
+            </div>
+
+            <!-- Hidden canvas element. Used for taking snapshot of video. -->
+            <canvas id="canvas"></canvas>
+
+        </div>
+
+    </div>
+    <script src="library.js" type="text/javascript">
+    </script>
+    <script>
+        var storage = firebase.storage();
+        var storageRef = storage.ref();
+        var spaceRef = storageRef.child('images');
+        
+    </script>
+</body>
+
+</html>
