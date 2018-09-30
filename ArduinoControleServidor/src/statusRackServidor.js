@@ -6,7 +6,7 @@ exports.verificar = function(){
 
       var sensorPorta = new five.Switch(4);
       
-      sensorPorta.on("open", function() {
+      sensorPorta.on("close", function() {
             console.log( horarioCompleto.getHorario() + " - Rack servidor fechado!" );
 
             firebase.database().ref('rackServidor').child('status').set({
@@ -18,7 +18,7 @@ exports.verificar = function(){
             })
       });
 
-      sensorPorta.on("close", function() {
+      sensorPorta.on("open", function() {
             console.log( horarioCompleto.getHorario() + " - Rack servidor aberto" );
 
             firebase.database().ref('rackServidor').child('status').set({
