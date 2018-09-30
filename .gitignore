@@ -1,13 +1,15 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/control-panel-react/node_modules
+*/node_modules
+*/*/node_modules
 
 # testing
-/control-panel-react/coverage
+*/coverage
 
 # production
-/control-panel-react/build
+*/build
+
 
 # misc
 .DS_Store
@@ -16,6 +18,21 @@
 .env.test.local
 .env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+*/npm-debug.log*
+*/yarn-debug.log*
+*/yarn-error.log*
+*/yarn.lock
+*/package-lock.json
+
+
+#Android
+*.iml
+.gradle
+*/local.properties
+*/.idea/libraries
+*/.idea/modules.xml
+*/.idea/workspace.xml
+.DS_Store
+/PainelControleAndroid/captures
+.externalNativeBuild
+

@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Painel Controle Android</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="L1_C1">Lâmpada 1</string>
+    <string name="L1_C2">Lâmpada 2</string>
+    <string name="L1_C3">Lâmpada 3</string>
+
+    <string name="L4_C1">Chuva</string>
+    <string name="L4_C2">Temperatura</string>
+    <string name="L4_C3">Alarme</string>
+
+    <string name="L7_C1">Status Janela 1</string>
+    <string name="L7_C2">Janela 1 Abriu</string>
+    <string name="L7_C3">Janela 1 Fechou</string>
+
+    <string name="L10_C1">Status Porta 1</string>
+    <string name="L10_C2">Porta 1 Abriu</string>
+    <string name="L10_C3">Porta 1 Fechou</string>
+
+    <string name="L13_C1">Status Porta 2</string>
+    <string name="L13_C2">Porta 2 Abriu</string>
+    <string name="L13_C3">Porta 2 Fechou</string>
+
+
+    <string name="action_settings">Settings</string>
+</resources>

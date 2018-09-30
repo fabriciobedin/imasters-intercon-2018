@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorFuncoes">#555</color>
+    <color name="colorDivisoriasEmCima">#666</color>
+    <color name="colorDivisoriasEmBaixo">#bbb</color>
+    <color name="colorTextSensor">#bbb</color>
+    <color name="colorCinzaClaro">#B8B8B8</color>
+    <color name="colorCinzaMedio">#888888</color>
+    <color name="colorLaranja">#EA5D41</color>
+    <color name="colorLaranjaEscuro">#E64525</color>
+    <color name="colorLaranjaClaro">#F4A480</color>
+    <color name="colorChumboLogo">#434343</color>
+</resources>
