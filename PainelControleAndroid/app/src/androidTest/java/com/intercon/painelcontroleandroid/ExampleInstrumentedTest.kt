@@ -1,4 +1,4 @@
-package io.github.fabriciobedin.painelcontroleandroid
+package com.intercon.painelcontroleandroid
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("io.github.fabriciobedin.painelcontroleandroid", appContext.packageName)
+        assertEquals("com.intercon.painelcontroleandroid", appContext.packageName)
     }
 }

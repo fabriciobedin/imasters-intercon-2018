@@ -109,10 +109,10 @@ function takePhoto(){
   // Pause video playback of stream.
   video.pause();
 */
-  var name = new Date().getTime();
-  if (name - lastSelfie > 5000){
-    lastSelfie = name;  
-    spaceRef.child(name + ".jpg").putString(snap, 'data_url').then(function(snapshot) {
+  var timeNow = new Date().getTime();
+  if (timeNow - lastSelfie > 5000){
+    lastSelfie = timeNow;  
+    spaceRef.child("selfie.jpg").putString(snap, 'data_url').then(function(snapshot) {
           console.log('Uploaded a data_url string!');
     });
   }

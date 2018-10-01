@@ -1,4 +1,4 @@
-package io.github.fabriciobedin.painelcontroleandroid
+package com.intercon.painelcontroleandroid
 
 import org.junit.Test
 
