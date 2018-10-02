@@ -16,6 +16,8 @@ class ControleServidorTravado extends Component {
         }
         this.botaoDesligar = this.botaoDesligar.bind(this);
         this.botaoLigar = this.botaoLigar.bind(this);
+        this.botaoConfirmar = this.botaoConfirmar.bind(this);
+
 
     }
 
@@ -23,11 +25,9 @@ class ControleServidorTravado extends Component {
         const status = firebase.database().ref('servidor/status').child('status');
         status.on('value', (snapshot) => {
             this.setState({
-                statusServidor: snapshot.val()
+                statusServidor: snapshot.val(),
+                estiloCard : 50
             });
-            if(snapshot.val() == 0){
-                this.setState({estiloCard : 50})
-            }
         });
     }
 
@@ -41,6 +41,10 @@ class ControleServidorTravado extends Component {
         const controle = firebase.database().ref('servidor/controle');
         controle.set( {controle : 6})
         this.setState({estiloCard : 3})
+    };
+
+    botaoConfirmar (){
+        this.setState({estiloCard : 4})
     };
 
     estiloCardPadrao = () => {
@@ -58,11 +62,11 @@ class ControleServidorTravado extends Component {
                 return(
                     <Card style={{ backgroundColor: '#f00', marginTop: 20, textAlign:'center'}}>
                     <CardContent>
-                        <h1 style={{marginTop: 5, fontSize: 20, textAlign: 'center', color: '#fff'}}>Desligar Servidor?</h1>
+                        <h2 style={{marginTop: 5, fontSize: 20, textAlign: 'center', color: '#fff'}}>Forçar desligamento?</h2>
                         <Button style={{width: '40%', lineHeight: '10px', marginTop: '6px',  backgroundColor: '#f55', marginRight: '20px'}} variant="extendedFab" onClick={this.estiloCardPadrao}>
                             <h3 style={{ color: '#fff'}}>Não</h3>
                         </Button>
-                        <Button style={{width: '40%', lineHeight: '10px', marginTop: '6px', backgroundColor: '#c00'}} variant="extendedFab" onClick={this.botaoDesligar}>
+                        <Button style={{width: '40%', lineHeight: '10px', marginTop: '6px', backgroundColor: '#c00'}} variant="extendedFab" onClick={this.botaoConfirmar}>
                             <h3 style={{ color: '#fff'}}>Sim</h3>
                         </Button>
                     </CardContent>
@@ -75,7 +79,7 @@ class ControleServidorTravado extends Component {
                     <CardContent>
                         <h1 style={{marginTop: 5, fontSize: 20, textAlign: 'center'}}>Aguarde, desligando o servidor...</h1>
                         
-                        <CircularProgress style={{lineHeight: '10px', marginTop: '10px', color: '#c00'}} />
+                        <CircularProgress style={{lineHeight: '10px', marginTop: '10px', color: '#c00'}} onClick={this.estiloCardPadrao} />
                     </CardContent>
                     </Card>
                 );           
@@ -85,8 +89,23 @@ class ControleServidorTravado extends Component {
                     <Card style={{ backgroundColor: '#eee', marginTop: 20, textAlign:'center'}}>
                     <CardContent>
                         <h1 style={{marginTop: 5, fontSize: 20, textAlign: 'center'}}>Aguarde, ligando o servidor...</h1>
-                        
-                        <CircularProgress style={{lineHeight: '10px', marginTop: '10px', color: '#c00'}} />
+                        <CircularProgress style={{lineHeight: '10px', marginTop: '10px', color: '#c00'}} onClick={this.estiloCardPadrao} />
+                    </CardContent>
+                    </Card>
+                );           
+            }
+            
+            case 4: {
+                return(
+                    <Card style={{ backgroundColor: '#555', marginTop: 20, textAlign:'center'}}>
+                    <CardContent>
+                        <h2 style={{marginTop: 5, fontSize: 20, textAlign: 'center', color: '#fff'}}>Operação não recomendada, proceguir?</h2>
+                        <Button style={{width: '40%', lineHeight: '10px', marginTop: '6px',  backgroundColor: '#f00', marginRight: '20px'}} variant="extendedFab" onClick={this.botaoDesligar}>
+                            <h3 style={{ color: '#fff'}}>Sim</h3>
+                        </Button>
+                        <Button style={{width: '40%', lineHeight: '10px', marginTop: '6px', backgroundColor: '#ccc'}} variant="extendedFab" onClick={this.estiloCardPadrao}>
+                            <h3 style={{ color: '#555'}}>Não</h3>
+                        </Button>
                     </CardContent>
                     </Card>
                 );           
@@ -108,16 +127,16 @@ class ControleServidorTravado extends Component {
     }
 
     renderizaStatus(){
-    if (this.state.statusServidor == 1 ) {
+    if (this.state.statusServidor === 1 ) {
         return (
-        <Button style={{width: '100%', lineHeight: '10px', marginTop: '6px', backgroundColor: '#ee0000'}} variant="extendedFab" onClick={this.estiloCardTeste}>
+        <Button style={{width: '100%', lineHeight: '10px', marginTop: '6px', backgroundColor: '#ba0000'}} variant="extendedFab" onClick={this.estiloCardTeste}>
             <PowerIcon  style={{fontSize: 40, color: '#fff'}}/>
             <h3 style={{marginLeft: '10px', color: '#fff'}}>Desligar</h3>
         </Button>
         );
-        } else if (this.state.statusServidor == 0){
+        } else if (this.state.statusServidor === 0){
             return (
-            <Button style={{width: '100%', lineHeight: '10px', marginTop: '6px', backgroundColor: '#0c9600'}} variant="extendedFab" onClick={this.botaoLigar} >
+            <Button style={{width: '100%', lineHeight: '10px', marginTop: '6px', backgroundColor: '#00a824'}} variant="extendedFab" onClick={this.botaoLigar} >
                 <PowerIcon  style={{fontSize: 40, color: '#fff'}}/>
                 <h3 style={{marginLeft: '10px', color: '#fff'}}>Ligar</h3>
             </Button>

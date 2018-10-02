@@ -26,14 +26,14 @@ class StatusServidor extends Component {
   }
 
   renderizaStatus(){
-    if (this.state.statusServidor == 1 ) {
+    if (this.state.statusServidor === 1 ) {
       return (
         <div style={{display: 'inline-block', lineHeight: '10px'}}>
           <ServidorOnIcon  style={{fontSize: 50, color: '#00cc00'}}/>
           <h3 style={{marginLeft: '10px', float: "right", color: '#777'}}> Ligado</h3>
         </div>
       );
-    } else if (this.state.statusServidor == 0){
+    } else if (this.state.statusServidor === 0){
       return (
         <div style={{display: 'inline-block', lineHeight: '10px'}}>
           <ServidorOffIcon  style={{fontSize: 50, color: '#ee0000'}}/>
