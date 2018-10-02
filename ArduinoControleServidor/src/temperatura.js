@@ -13,7 +13,7 @@ exports.verificar = function(){
     thermometer.on("change", function() {
         var value = parseInt(this.celsius);
         
-        if (teste != value){
+        if (teste != value && teste != value +1 && teste != value-1){
             teste = value;
 
             firebase.database().ref('temperatura').child('temperatura').set({

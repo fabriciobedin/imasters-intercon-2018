@@ -6,7 +6,7 @@ import ServidorOffIcon from '@material-ui/icons/HighlightOff';
 import ServidorOnIcon from '@material-ui/icons/CheckCircle';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-class StatusServidor extends Component {
+class StatusRackServidor extends Component {
   
   constructor() {
     super();
@@ -16,7 +16,7 @@ class StatusServidor extends Component {
   }
   
   componentDidMount() {
-    const status = firebase.database().ref('servidor/status').child('status');
+    const status = firebase.database().ref('rackServidor/status').child('status');
     status.on('value', (snapshot) => {
       this.setState({
         statusServidor: snapshot.val()
@@ -58,4 +58,4 @@ class StatusServidor extends Component {
   }
 }
 
-export default StatusServidor;
+export default StatusRackServidor;

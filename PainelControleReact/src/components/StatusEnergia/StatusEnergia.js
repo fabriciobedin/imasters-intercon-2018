@@ -48,7 +48,7 @@ class StatusEnergia extends Component {
 
   render() {
     return (
-      <Card style={{ backgroundColor: '#eee', marginTop: 20, textAlign:'center'}}>
+      <Card style={{ backgroundColor: '#eee', marginTop: 10, marginBotton: 10, textAlign:'center'}}>
         <CardContent>
             <h1 style={{marginTop: 5, fontSize: 20, textAlign: 'center'}}>Status da Energia </h1>
             {this.renderizaStatus()}

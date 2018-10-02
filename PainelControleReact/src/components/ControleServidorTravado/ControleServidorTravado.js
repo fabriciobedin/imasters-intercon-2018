@@ -60,7 +60,7 @@ class ControleServidorTravado extends Component {
         switch(this.state.estiloCard) {
             case 1: {
                 return(
-                    <Card style={{ backgroundColor: '#f00', marginTop: 20, textAlign:'center'}}>
+                    <Card style={{ backgroundColor: '#f00', marginTop: 10, marginBotton: 10, textAlign:'center'}}>
                     <CardContent>
                         <h2 style={{marginTop: 5, fontSize: 20, textAlign: 'center', color: '#fff'}}>Forçar desligamento?</h2>
                         <Button style={{width: '40%', lineHeight: '10px', marginTop: '6px',  backgroundColor: '#f55', marginRight: '20px'}} variant="extendedFab" onClick={this.estiloCardPadrao}>
@@ -75,7 +75,7 @@ class ControleServidorTravado extends Component {
             }
             case 2: {
                 return(
-                    <Card style={{ backgroundColor: '#eee', marginTop: 20, textAlign:'center'}}>
+                    <Card style={{ backgroundColor: '#eee', marginTop: 10, marginBotton: 10, textAlign:'center'}}>
                     <CardContent>
                         <h1 style={{marginTop: 5, fontSize: 20, textAlign: 'center'}}>Aguarde, desligando o servidor...</h1>
                         
@@ -86,7 +86,7 @@ class ControleServidorTravado extends Component {
             }
             case 3: {
                 return(
-                    <Card style={{ backgroundColor: '#eee', marginTop: 20, textAlign:'center'}}>
+                    <Card style={{ backgroundColor: '#eee', marginTop: 10, marginBotton: 10, textAlign:'center'}}>
                     <CardContent>
                         <h1 style={{marginTop: 5, fontSize: 20, textAlign: 'center'}}>Aguarde, ligando o servidor...</h1>
                         <CircularProgress style={{lineHeight: '10px', marginTop: '10px', color: '#c00'}} onClick={this.estiloCardPadrao} />
@@ -97,9 +97,9 @@ class ControleServidorTravado extends Component {
             
             case 4: {
                 return(
-                    <Card style={{ backgroundColor: '#555', marginTop: 20, textAlign:'center'}}>
+                    <Card style={{ backgroundColor: '#555', marginTop: 10, marginBotton: 10, textAlign:'center'}}>
                     <CardContent>
-                        <h2 style={{marginTop: 5, fontSize: 20, textAlign: 'center', color: '#fff'}}>Operação não recomendada, proceguir?</h2>
+                        <h2 style={{marginTop: 5, fontSize: 20, textAlign: 'center', color: '#fff'}}>Operação não recomendada, prosseguir?</h2>
                         <Button style={{width: '40%', lineHeight: '10px', marginTop: '6px',  backgroundColor: '#f00', marginRight: '20px'}} variant="extendedFab" onClick={this.botaoDesligar}>
                             <h3 style={{ color: '#fff'}}>Sim</h3>
                         </Button>
@@ -113,9 +113,9 @@ class ControleServidorTravado extends Component {
 
             default: {
                 return(
-                    <Card style={{ backgroundColor: '#eee', marginTop: 20, textAlign:'center'}}>
+                    <Card style={{ backgroundColor: '#eee', marginTop: 10, marginBotton: 10, textAlign:'center'}}>
                         <CardContent>
-                            <h1 style={{marginTop: 5, fontSize: 20, textAlign: 'center'}}>Servidor Travado</h1>
+                            <h1 style={{marginTop: 5, fontSize: 20, textAlign: 'center'}}>Controle Servidor Hard</h1>
                             {this.renderizaStatus()}
                         </CardContent>
                     </Card>
@@ -131,14 +131,14 @@ class ControleServidorTravado extends Component {
         return (
         <Button style={{width: '100%', lineHeight: '10px', marginTop: '6px', backgroundColor: '#ba0000'}} variant="extendedFab" onClick={this.estiloCardTeste}>
             <PowerIcon  style={{fontSize: 40, color: '#fff'}}/>
-            <h3 style={{marginLeft: '10px', color: '#fff'}}>Desligar</h3>
+            <h3 style={{marginLeft: '7px', color: '#fff'}}>Desligar</h3>
         </Button>
         );
         } else if (this.state.statusServidor === 0){
             return (
             <Button style={{width: '100%', lineHeight: '10px', marginTop: '6px', backgroundColor: '#00a824'}} variant="extendedFab" onClick={this.botaoLigar} >
                 <PowerIcon  style={{fontSize: 40, color: '#fff'}}/>
-                <h3 style={{marginLeft: '10px', color: '#fff'}}>Ligar</h3>
+                <h3 style={{marginLeft: '7px', color: '#fff'}}>Ligar</h3>
             </Button>
             );
         } else{
