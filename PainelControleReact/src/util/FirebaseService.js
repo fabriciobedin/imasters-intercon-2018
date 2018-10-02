@@ -1,0 +1,20 @@
+import {firebaseDatabase} from './Firebase'
+
+export default class FirebaseService {
+    static getDataList = (nodePath, callback) => {
+
+        let query = firebaseDatabase.ref(nodePath);
+        query.on('value', dataSnapshot => {
+            let items = [];
+            dataSnapshot.forEach(childSnapshot => {
+                let item = childSnapshot.val();
+                item['key'] = childSnapshot.key;
+                items.push(item);
+            });
+            callback(items);
+        });
+
+        return query;
+    };
+
+}

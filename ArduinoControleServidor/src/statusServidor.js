@@ -19,21 +19,48 @@ exports.verificar = function(){
                 teste = value;
     
                 if(value >= 3){
-                    firebase.database().ref('servidor/status').child( horarioCompleto.getKey() ).set({
+                    firebase.database().ref('servidor').child('status').set({
                         status : 1,
+                    })
+
+                    firebase.database().ref('servidor').child('horarioLigou').set({
                         horario : horarioCompleto.getHorario()
                     })
-    
+
                     console.log( horarioCompleto.getHorario() + " - Servidor Ligado" );
                 } else {
-                    firebase.database().ref('servidor/status').child( horarioCompleto.getKey() ).set({
+
+                    firebase.database().ref('servidor').child('status').set({
                         status : 0,
+                    })
+
+                    firebase.database().ref('servidor').child('horarioDesligou').set({
                         horario : horarioCompleto.getHorario()
                     })
     
                     console.log( horarioCompleto.getHorario() + " - Servidor Desligado" );
     
                 }
+
+
+
+
+                // if(value >= 3){
+                //     firebase.database().ref('servidor/status').child( horarioCompleto.getKey() ).set({
+                //         status : 1,
+                //         horario : horarioCompleto.getHorario()
+                //     })
+    
+                //     console.log( horarioCompleto.getHorario() + " - Servidor Ligado" );
+                // } else {
+                //     firebase.database().ref('servidor/status').child( horarioCompleto.getKey() ).set({
+                //         status : 0,
+                //         horario : horarioCompleto.getHorario()
+                //     })
+    
+                //     console.log( horarioCompleto.getHorario() + " - Servidor Desligado" );
+    
+                // }
             }
         });
 
