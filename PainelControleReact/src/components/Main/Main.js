@@ -1,7 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from './styles';
-import {Servidor} from '../Servidor/Servidor';
+import Servidor from '../Servidor/Servidor';
 import {Sensores} from '../Sensores/Sensores';
 import {Graficos} from '../Graficos/Graficos';
 import {Ocarina} from '../Ocarina/Ocarina';
@@ -16,7 +16,8 @@ class Dashboard extends React.Component {
     return (
       <main className={classes.main}>
         <div className={classes.appBarSpacer} />
-        
+
+        <Route path="/" exact component={Servidor}/>
         <Route path="/servidor" component={Servidor}/>
         <Route path="/sensores" component={Sensores}/>
         <Route path="/graficos" component={Graficos}/>

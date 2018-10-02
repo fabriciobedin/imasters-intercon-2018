@@ -1,6 +1,7 @@
 export const styles = theme => ({
   appBarSpacer: theme.mixins.toolbar,
   main:{
-    marginLeft: 215 
+    marginLeft: 210,
+    marginRight: 20
   },
 });

@@ -5,8 +5,8 @@
 #include "DHT.h"
 
 // Set these to run example.
-#define FIREBASE_HOST "intercon-cc310.firebaseio.com"
-#define FIREBASE_AUTH "qR25ovbE67twvaeQQQQWUpOKHJsg3tPp58VsqQZE"
+#define FIREBASE_HOST "intercon-c43d2.firebaseio.com"
+#define FIREBASE_AUTH "lqeRhJStzzJi2ub4FjJCvdc0O4jEmtGailrG5YQ5"
 #define WIFI_SSID "Fabricio"
 #define WIFI_PASSWORD "@fabricio"
 
@@ -114,12 +114,14 @@ void loop() {
   }
 
    if(testeLdr){
-    Serial.println("Recebendo dados do LDR...");
+    
     // Obtem os dados do sensor DHT 
     float ldr = analogRead(LDR);
+    Serial.println( ldr);
     if(!isnan(ldr)){
       // Manda para o firebase
-      Firebase.pushFloat("ldr", ldr);  
+      Firebase.pushFloat("ldr", ldr);
+            Serial.println("Enviado ao firebase");
       testeLdr = false;
     }else{
       Serial.println("Erro ao receber dados do LDR");
