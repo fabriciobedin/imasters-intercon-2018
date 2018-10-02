@@ -6,7 +6,7 @@ import firebase from '../../util/Firebase'
 import PowerIcon from '@material-ui/icons/PowerSettingsNew';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-class ControleServidor extends Component {
+class ControleServidorTravado extends Component {
   
     constructor() {
         super();
@@ -15,6 +15,8 @@ class ControleServidor extends Component {
             estiloCard: 50,
         }
         this.botaoDesligar = this.botaoDesligar.bind(this);
+        this.botaoLigar = this.botaoLigar.bind(this);
+
     }
 
     componentDidMount() {
@@ -31,16 +33,22 @@ class ControleServidor extends Component {
 
     botaoDesligar (){
         const controle = firebase.database().ref('servidor/controle');
-        controle.set( {controle : 1})
+        controle.set( {controle : 6})
         this.setState({estiloCard : 2})
     };
 
+    botaoLigar (){
+        const controle = firebase.database().ref('servidor/controle');
+        controle.set( {controle : 6})
+        this.setState({estiloCard : 3})
+    };
+
     estiloCardPadrao = () => {
-        this.setState({ estiloCard: 50 });
+        this.setState({ estiloCard : 50 });
     };
 
     estiloCardTeste = () => {
-        this.setState({ estiloCard: 1 });
+        this.setState({ estiloCard : 1 });
     }
 
     renderizaRetorno(){
@@ -65,8 +73,20 @@ class ControleServidor extends Component {
                 return(
                     <Card style={{ backgroundColor: '#eee', marginTop: 20, textAlign:'center'}}>
                     <CardContent>
-                        <h1 style={{marginTop: 5, fontSize: 20, textAlign: 'center'}}>Aguarde.. desligando servidor!</h1>
-                        <CircularProgress style={{lineHeight: '10px', marginTop: '10px', color: '#c00'}} onClick={this.estiloCardPadrao}  />
+                        <h1 style={{marginTop: 5, fontSize: 20, textAlign: 'center'}}>Aguarde, desligando o servidor...</h1>
+                        
+                        <CircularProgress style={{lineHeight: '10px', marginTop: '10px', color: '#c00'}} />
+                    </CardContent>
+                    </Card>
+                );           
+            }
+            case 3: {
+                return(
+                    <Card style={{ backgroundColor: '#eee', marginTop: 20, textAlign:'center'}}>
+                    <CardContent>
+                        <h1 style={{marginTop: 5, fontSize: 20, textAlign: 'center'}}>Aguarde, ligando o servidor...</h1>
+                        
+                        <CircularProgress style={{lineHeight: '10px', marginTop: '10px', color: '#c00'}} />
                     </CardContent>
                     </Card>
                 );           
@@ -76,7 +96,7 @@ class ControleServidor extends Component {
                 return(
                     <Card style={{ backgroundColor: '#eee', marginTop: 20, textAlign:'center'}}>
                         <CardContent>
-                            <h1 style={{marginTop: 5, fontSize: 20, textAlign: 'center'}}>Controle do Servidor</h1>
+                            <h1 style={{marginTop: 5, fontSize: 20, textAlign: 'center'}}>Servidor Travado</h1>
                             {this.renderizaStatus()}
                         </CardContent>
                     </Card>
@@ -97,7 +117,7 @@ class ControleServidor extends Component {
         );
         } else if (this.state.statusServidor == 0){
             return (
-            <Button style={{width: '100%', lineHeight: '10px', marginTop: '6px', backgroundColor: '#00cc00'}} variant="extendedFab" >
+            <Button style={{width: '100%', lineHeight: '10px', marginTop: '6px', backgroundColor: '#0c9600'}} variant="extendedFab" onClick={this.botaoLigar} >
                 <PowerIcon  style={{fontSize: 40, color: '#fff'}}/>
                 <h3 style={{marginLeft: '10px', color: '#fff'}}>Ligar</h3>
             </Button>
@@ -116,5 +136,5 @@ class ControleServidor extends Component {
     }
 }
 
-export default ControleServidor;
+export default ControleServidorTravado;
 

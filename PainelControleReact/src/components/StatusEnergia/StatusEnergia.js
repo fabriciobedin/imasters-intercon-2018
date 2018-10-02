@@ -41,14 +41,14 @@ class StatusEnergia extends Component {
       return (
         <div style={{display: 'inline-block', lineHeight: '10px'}}>
           <EnergiaOnIcon  style={{fontSize: 50, color: '#00cc00'}}/>
-          <h2 style={{marginLeft: '10px', float: "right", color: '#777'}}> OK</h2>
+          <h3 style={{marginLeft: '10px', float: "right", color: '#777'}}> OK</h3>
         </div>
       );
     } else if (this.state.statusEnergia == 0){
       return (
         <div style={{display: 'inline-block', lineHeight: '10px'}}>
           <EnergiaOffIcon  style={{fontSize: 50, color: '#ee0000'}}/>
-          <h2 style={{marginLeft: '10px', float: "right", color: '#777'}}> Sem luz</h2>
+          <h3 style={{marginLeft: '10px', float: "right", color: '#777'}}> Sem luz</h3>
         </div>
       );
     } else{
