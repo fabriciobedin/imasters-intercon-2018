@@ -2,7 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from './styles';
 import Servidor from '../Servidor/Servidor';
-import {Lampadas} from '../Lampadas/Lampadas';
+import Lampadas from '../Lampadas/Lampadas';
 import {Graficos} from '../Graficos/Graficos';
 import {Ocarina} from '../Ocarina/Ocarina';
 import SignIn from '../SignIn/SignIn';

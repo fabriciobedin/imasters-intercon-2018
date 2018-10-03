@@ -19,6 +19,8 @@ exports.iniciar = function(){
     var lamp5 = firebase.database().ref("lampadas/lamp5").child('controle');
     var lamp6 = firebase.database().ref("lampadas/lamp6").child('controle');
     var lamp7 = firebase.database().ref("lampadas/lamp7").child('controle');
+    var aleatorio = firebase.database().ref("lampadas/aleatorio").child('controle');
+
 
 
     lamp1.on("value", function(snapshot) {
@@ -111,4 +113,117 @@ exports.iniciar = function(){
             console.log( horarioCompleto.getHorario() + " - Lampada 7 desligada!" );
         }
     });
+
+    aleatorio.on("value", function(snapshot) {
+
+        if (snapshot.val() == 1) {
+            ligarTodas();
+            setTimeout(function() {
+                desligarTodas();
+                setTimeout(function() {
+                    ligarTodas();
+                    setTimeout(function() {
+                        desligarTodas();
+                        setTimeout(function() {
+                            ligarTodas();
+                        }, 500); 
+                    }, 500); 
+                }, 500); 
+            }, 500); 
+        }
+
+        if (snapshot.val() == 0) {
+            desligarTodas();
+
+        }
+    });
+
+
+
+}
+
+function ligarTodas(){
+    relay1.on();
+    firebase.database().ref('lampadas/lamp1').set({
+        controle : 1
+    })
+
+    relay7.on();
+    firebase.database().ref('lampadas/lamp7').set({
+        controle : 1
+    })
+
+    setTimeout(function() {
+        relay2.on();
+        firebase.database().ref('lampadas/lamp2').set({
+            controle : 1
+        })
+
+        relay6.on();
+        firebase.database().ref('lampadas/lamp6').set({
+            controle : 1
+        })
+
+        setTimeout(function() {
+            relay3.on();
+            firebase.database().ref('lampadas/lamp3').set({
+                controle : 1
+            })
+
+            relay5.on();
+            firebase.database().ref('lampadas/lamp5').set({
+                controle : 1
+            })
+
+            setTimeout(function() {
+                relay4.on();
+                firebase.database().ref('lampadas/lamp4').set({
+                    controle : 1
+                })
+            }, 500);
+        }, 500);
+    }, 500);
+}
+
+function desligarTodas(){
+    relay1.off();
+    firebase.database().ref('lampadas/lamp1').set({
+        controle : 0
+    })
+
+    relay7.off();
+    firebase.database().ref('lampadas/lamp7').set({
+        controle : 0
+    })
+
+    setTimeout(function() {
+        relay2.off();
+        firebase.database().ref('lampadas/lamp2').set({
+            controle : 0
+        })
+
+        relay6.off();
+        firebase.database().ref('lampadas/lamp6').set({
+            controle : 0
+        })
+
+        setTimeout(function() {
+            relay3.off();
+            firebase.database().ref('lampadas/lamp3').set({
+                controle : 0
+            })
+
+            relay5.off();
+            firebase.database().ref('lampadas/lamp5').set({
+                controle : 0
+            })
+
+            setTimeout(function() {
+                relay4.off();
+                firebase.database().ref('lampadas/lamp4').set({
+                    controle : 0
+                })
+            }, 500);
+        }, 500);
+    }, 500);
 }

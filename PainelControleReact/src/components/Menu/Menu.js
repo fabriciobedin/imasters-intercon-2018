@@ -8,8 +8,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ServidorIcon from '@material-ui/icons/Dns';
 import Lampada from '@material-ui/icons/WbIncandescent';
-import Grafico from '@material-ui/icons/Timeline';
-import Som from '@material-ui/icons/Hearing';
+// import Grafico from '@material-ui/icons/Timeline';
+// import Som from '@material-ui/icons/Hearing';
 import {Link } from 'react-router-dom';
 
 
@@ -45,23 +45,23 @@ render() {
                             </ListItem>
                         </Link>
 
-                        <Link to="/graficos">
+                        {/* <Link to="/graficos">
                             <ListItem button>
                                 <ListItemIcon>
                                     <Grafico />
                                 </ListItemIcon>
                                 <ListItemText primary="Gráficos" />
                             </ListItem>
-                        </Link>
+                        </Link> */}
 
-                        <Link to="/ocarina">
+                        {/* <Link to="/ocarina">
                             <ListItem button>
                             <ListItemIcon>
                                 <Som />
                             </ListItemIcon>
                             <ListItemText primary="Ocarina" />
                             </ListItem>
-                        </Link>
+                        </Link> */}
                     </div>
                 </List>
             </Drawer>
