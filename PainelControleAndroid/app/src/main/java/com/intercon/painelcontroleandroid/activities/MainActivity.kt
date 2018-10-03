@@ -86,6 +86,24 @@ class MainActivity : AppCompatActivity(), ValueEventListener {
             }
         }
 
+        txtShowStatus.setOnClickListener {
+            if (linearStatus.visibility == View.GONE) {
+                linearStatus.visibility = View.VISIBLE
+                txtShowStatus.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                        null,
+                        null,
+                        resources.getDrawable(R.drawable.ic_minus_circle_outline),
+                        null )
+            } else {
+                linearStatus.visibility = View.GONE
+                txtShowStatus.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                        null,
+                        null,
+                        resources.getDrawable(R.drawable.ic_plus_circle_outline),
+                        null )
+            }
+        }
+
         Core.ref.addValueEventListener(this)
     }
 }

@@ -223,6 +223,141 @@
                 </LinearLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:padding="10dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:animateLayoutChanges="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtShowStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:drawableRight="@drawable/ic_plus_circle_outline"
+                    android:text="Status"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:id="@+id/linearStatus"
+                    android:visibility="visible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <GridLayout
+                        android:rowCount="2"
+                        android:columnCount="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:padding="5dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/shape_lighut_temp"
+                            android:gravity="center"
+                            android:layout_columnWeight="0.5"
+                            android:orientation="vertical">
+                            <TextView
+                                android:text="Rack"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:textSize="18sp"
+                                android:gravity="center_vertical"
+                                android:drawableLeft="@drawable/ic_lock_outline"
+                                android:text="Fechado"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:padding="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:background="@drawable/shape_lighut_temp"
+                            android:gravity="center"
+                            android:layout_columnWeight="0.5"
+                            android:orientation="vertical">
+                            <TextView
+                                android:text="Energia"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:textSize="18sp"
+                                android:gravity="center_vertical"
+                                android:drawableLeft="@drawable/ic_power_plug_off"
+                                android:text="Sem Luz"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:padding="5dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/shape_lighut_temp"
+                            android:gravity="center"
+                            android:layout_columnWeight="0.5"
+                            android:orientation="vertical">
+                            <TextView
+                                android:text="Servidor"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:textSize="18sp"
+                                android:gravity="center_vertical"
+                                android:drawableLeft="@drawable/ic_power_off"
+                                android:text="Desligado"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:padding="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:background="@drawable/shape_lighut_temp"
+                            android:gravity="center"
+                            android:layout_columnWeight="0.5"
+                            android:orientation="vertical">
+                            <TextView
+                                android:text="Cooler"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:textSize="18sp"
+                                android:gravity="center_vertical"
+                                android:drawableLeft="@drawable/ic_fan_off"
+                                android:text="Desligado"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </GridLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
     </LinearLayout>
 
 </ScrollView>
