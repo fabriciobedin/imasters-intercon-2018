@@ -46,32 +46,32 @@ function draw() {
      if (spectrum[i] > 250){
         console.log(i);
         if (i == 17){
-          firebase.database().ref().set({
-            nota: "Nota Do "
+          firebase.database().ref("lampadas/lamp1").set({
+            controle: 1
           });
         } else if (i == 18) {
-          firebase.database().ref().set({
-            nota: "Nota Re "
+          firebase.database().ref("lampadas/lamp2").set({
+            controle: 1
           });
         }  else if (i == 21) {
-          firebase.database().ref().set({
-            nota: "Nota Mi "
+          firebase.database().ref("lampadas/lamp3").set({
+            controle: 1
           });
         } else if (i == 24) {
-          firebase.database().ref().set({
-            nota: "Nota Fa "
+          firebase.database().ref("lampadas/lamp4").set({
+            controle: 1
           });
         } else if (i == 26) {
-          firebase.database().ref().set({
-            nota: "Nota Sol"
+          firebase.database().ref("lampadas/lamp5").set({
+            controle: 1
           });
         } else if (i == 28) {
-          firebase.database().ref().set({
-            nota: "Nota La "
+          firebase.database().ref("lampadas/lamp6").set({
+            controle: 1
           });
         } else if (i == 30) {
-          firebase.database().ref().set({
-            nota: "Nota Si "
+          firebase.database().ref("lampadas/lamp7").set({
+            controle: 1
           });
         }
      }
