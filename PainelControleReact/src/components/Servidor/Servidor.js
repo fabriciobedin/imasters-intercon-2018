@@ -1,14 +1,13 @@
 import React from 'react';
-import StatusEnergia from '../StatusEnergia/StatusEnergia'
-import StatusServidor from '../StatusServidor/StatusServidor'
-
+import StatusEnergia from './StatusEnergia/StatusEnergia'
+import StatusServidor from './StatusServidor/StatusServidor'
 import Grid from '@material-ui/core/Grid';
-import ControleServidor from '../ControleServidor/ControleServidor';
-import ControleServidorTravado from '../ControleServidorTravado/ControleServidorTravado';
-import BancoCoolers from '../BancoCoolers/BancoCoolers';
-import Temperatura from '../Temperatura/Temperatura';
-import StatusCoolers from '../StatusCoolers/StatusCoolers';
-import StatusRackServidor from '../StatusRackServidor/StatusRackServidor';
+import ControleServidor from './ControleServidor/ControleServidor';
+import ControleServidorTravado from './ControleServidorTravado/ControleServidorTravado';
+import BancoCoolers from './BancoCoolers/BancoCoolers';
+import Temperatura from './Temperatura/Temperatura';
+import StatusCoolers from './StatusCoolers/StatusCoolers';
+import StatusRackServidor from './StatusRackServidor/StatusRackServidor';
   function Servidor() {  
     return (
       <div>

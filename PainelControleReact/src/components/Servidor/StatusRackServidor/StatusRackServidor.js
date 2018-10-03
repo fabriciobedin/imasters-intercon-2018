@@ -1,43 +1,42 @@
 import React, { Component } from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import firebase from '../../util/Firebase'
+import firebase from '../../../util/Firebase'
+import LockOpenIcon from '@material-ui/icons/LockOpen';
+import LockIcon from '@material-ui/icons/Lock';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import FanIcon from '@material-ui/icons/Toys';
-import './StatusCoolers.css';
 
-
-class StatusCoolers extends Component {
+class StatusRackServidor extends Component {
   
   constructor() {
     super();
     this.state = {
-      statusCoolers: '3'
+      statusServidor: '3'
     }
   }
   
   componentDidMount() {
-    const status = firebase.database().ref('bancoCoolers/controle').child('controle');
+    const status = firebase.database().ref('rackServidor/status').child('status');
     status.on('value', (snapshot) => {
       this.setState({
-        statusCoolers: snapshot.val()
+        statusServidor: snapshot.val()
       });
     });
   }
 
   renderizaStatus(){
-    if (this.state.statusCoolers === 1 ) {
+    if (this.state.statusServidor === 0 ) {
       return (
         <div style={{display: 'inline-block', lineHeight: '10px'}}>
-          <FanIcon  className="App-logo" style={{fontSize: 50, color: '#00cc00'}}/>
-          <h3 style={{marginLeft: '10px', float: "right", color: '#777'}}> Ligado</h3>
+          <LockIcon style={{fontSize: 50, color: '#00cc00'}}/>
+          <h3 style={{marginLeft: '10px', float: "right", color: '#777'}}> Fechado </h3>
         </div>
       );
-    } else if (this.state.statusCoolers === 0){
+    } else if (this.state.statusServidor === 1){
       return (
         <div style={{display: 'inline-block', lineHeight: '10px'}}>
-          <FanIcon style={{fontSize: 50, color: '#ee0000'}}/>
-          <h3 style={{marginLeft: '10px', float: "right", color: '#777'}}> Desligado</h3>
+          <LockOpenIcon style={{fontSize: 50, color: '#ee0000'}}/>
+          <h3 style={{marginLeft: '10px', float: "right", color: '#777'}}> Aberto</h3>
         </div>
       );
     } else{
@@ -51,7 +50,7 @@ class StatusCoolers extends Component {
     return (
       <Card style={{ backgroundColor: '#eee', marginTop: 10, marginBotton: 10, textAlign:'center'}}>
         <CardContent>
-            <h1 style={{marginTop: 5, fontSize: 20, textAlign: 'center'}}>Status do Cooler </h1>
+            <h1 style={{marginTop: 5, fontSize: 20, textAlign: 'center'}}>Status do Rack</h1>
             {this.renderizaStatus()}
         </CardContent>
       </Card>
@@ -59,4 +58,4 @@ class StatusCoolers extends Component {
   }
 }
 
-export default StatusCoolers;
+export default StatusRackServidor;

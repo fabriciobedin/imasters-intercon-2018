@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import firebase from '../../util/Firebase'
+import firebase from '../../../util/Firebase'
 import FanIcon from '@material-ui/icons/Toys';
 import CircularProgress from '@material-ui/core/CircularProgress';
 

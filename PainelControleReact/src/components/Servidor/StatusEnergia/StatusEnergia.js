@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import firebase from '../../util/Firebase'
+import firebase from '../../../util/Firebase'
 import EnergiaOffIcon from '@material-ui/icons/PowerOff';
 import EnergiaOnIcon from '@material-ui/icons/Power';
 import CircularProgress from '@material-ui/core/CircularProgress';
+// import Divisor from '@material-ui/core/Divider/Divider'
 
 class StatusEnergia extends Component {
   
@@ -16,13 +17,24 @@ class StatusEnergia extends Component {
   }
   
   componentDidMount() {
-    const status = firebase.database().ref('sensorEnergia/status').child('status');
-    status.on('value', (snapshot) => {
-      this.setState({
-        statusEnergia: snapshot.val()
-      });
+    firebase.database().ref('sensorEnergia/status').child('status').on('value', (snapshot) => {
+      this.setState({ statusEnergia: snapshot.val() });
     });
+    
   }
+
+  // horarioRetornoEnergia() {
+  //   const horarioRetorno = firebase.database().ref('sensorEnergia/horario').child('horarioRetornouLuz')
+  //     horarioRetorno.on('value', (snapshot) => {
+  //       return( snapshot.val() );
+  //     })
+  // }
+
+  // horarioFaltouEnergia() {
+  //   firebase.database().ref('sensorEnergia/horario').child('horarioFaltouLuz').on('value', (snapshot) => {
+  //     return( snapshot.val() );
+  //   })
+  // }
 
   renderizaStatus(){
     if (this.state.statusEnergia === 1 ) {
@@ -30,6 +42,8 @@ class StatusEnergia extends Component {
         <div style={{display: 'inline-block', lineHeight: '10px'}}>
           <EnergiaOnIcon  style={{fontSize: 50, color: '#00cc00'}}/>
           <h3 style={{marginLeft: '10px', float: "right", color: '#777'}}> OK</h3>
+          {/* <Divisor />
+          <h5 style={{marginTop: 3, marginBotton:3 }}>{this.horarioRetornoEnergia()}</h5> */}
         </div>
       );
     } else if (this.state.statusEnergia === 0){
@@ -52,6 +66,8 @@ class StatusEnergia extends Component {
         <CardContent>
             <h1 style={{marginTop: 5, fontSize: 20, textAlign: 'center'}}>Status da Energia </h1>
             {this.renderizaStatus()}
+            {/* <Divisor />
+          <h5 style={{marginTop: 3, marginBotton:3 }}>{this.horarioFaltouEnergia()}</h5> */}
         </CardContent>
       </Card>
     );
