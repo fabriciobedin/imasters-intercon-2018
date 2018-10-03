@@ -32,7 +32,8 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".activities.ThiefActivity"></activity>
+        <activity android:name=".activities.ThiefActivity" />
+        <activity android:name=".activities.TestActivity"></activity>
     </application>
 
 </manifest>
