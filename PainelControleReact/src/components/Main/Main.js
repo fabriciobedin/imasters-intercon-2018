@@ -2,7 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from './styles';
 import Servidor from '../Servidor/Servidor';
-import {Sensores} from '../Sensores/Sensores';
+import {Lampadas} from '../Lampadas/Lampadas';
 import {Graficos} from '../Graficos/Graficos';
 import {Ocarina} from '../Ocarina/Ocarina';
 import SignIn from '../SignIn/SignIn';
@@ -19,7 +19,7 @@ class Dashboard extends React.Component {
 
         <Route path="/" exact component={Servidor}/>
         <Route path="/servidor" component={Servidor}/>
-        <Route path="/sensores" component={Sensores}/>
+        <Route path="/lampadas" component={Lampadas}/>
         <Route path="/graficos" component={Graficos}/>
         <Route path="/ocarina" component={Ocarina}/>
         <Route path="/signin" component={SignIn}/>

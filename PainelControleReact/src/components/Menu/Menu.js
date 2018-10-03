@@ -7,7 +7,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ServidorIcon from '@material-ui/icons/Dns';
-import Sensor from '@material-ui/icons/Memory';
+import Lampada from '@material-ui/icons/WbIncandescent';
 import Grafico from '@material-ui/icons/Timeline';
 import Som from '@material-ui/icons/Hearing';
 import {Link } from 'react-router-dom';
@@ -36,12 +36,12 @@ render() {
                             </ListItem>
                         </Link>
 
-                        <Link to="/sensores">
+                        <Link to="/lampadas">
                             <ListItem button>
                                 <ListItemIcon>
-                                    <Sensor />
+                                    <Lampada />
                                 </ListItemIcon>
-                                <ListItemText primary="Sensores" />
+                                <ListItemText primary="Lâmpadas" />
                             </ListItem>
                         </Link>
 

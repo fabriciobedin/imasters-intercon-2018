@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import firebase from '../../util/Firebase'
+import firebase from '../../../util/Firebase'
 import ServidorOffIcon from '@material-ui/icons/HighlightOff';
 import ServidorOnIcon from '@material-ui/icons/CheckCircle';
 import CircularProgress from '@material-ui/core/CircularProgress';

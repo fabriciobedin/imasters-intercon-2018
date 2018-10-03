@@ -6,6 +6,7 @@ var controleServidor = require("./src/controleServidor");
 var controleCoolers = require("./src/controleCoolers");
 var statusServidor = require("./src/statusServidor");
 var temperatura = require("./src/temperatura");
+var lampadas = require("./src/lampadas");
 
 
 five.Board().on("ready", function() {
@@ -18,6 +19,7 @@ five.Board().on("ready", function() {
       controleServidor.iniciar();
       controleCoolers.iniciar();
       temperatura.verificar();
+      lampadas.iniciar();
 
       console.log("----------------------------------------------");
 });

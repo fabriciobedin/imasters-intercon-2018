@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import firebase from '../../util/Firebase'
+import firebase from '../../../util/Firebase'
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 class Temperatura extends Component {
