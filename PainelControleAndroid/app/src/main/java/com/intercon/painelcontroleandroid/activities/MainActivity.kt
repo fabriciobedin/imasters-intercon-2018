@@ -33,6 +33,146 @@ class MainActivity : AppCompatActivity(), ValueEventListener {
                         txtTemperature.text = it.celsius.toString()
                     }
                 }
+
+                it.lampadas?.let {
+                    if (it.lamp1?.controle == 0) {
+                        txtLightDo.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                resources.getDrawable(R.drawable.ic_lightbulb_outline),
+                                null,
+                                null,
+                                null )
+                    } else if (it.lamp1?.controle == 1) {
+                        txtLightDo.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                resources.getDrawable(R.drawable.ic_lightbulb_on_outline),
+                                null,
+                                null,
+                                null )
+                    }
+
+                    if (it.lamp2?.controle == 0) {
+                        txtLightRe.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                resources.getDrawable(R.drawable.ic_lightbulb_outline),
+                                null,
+                                null,
+                                null )
+                    } else if (it.lamp2?.controle == 1) {
+                        txtLightRe.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                resources.getDrawable(R.drawable.ic_lightbulb_on_outline),
+                                null,
+                                null,
+                                null )
+                    }
+
+                    if (it.lamp3?.controle == 0) {
+                        txtLightMi.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                resources.getDrawable(R.drawable.ic_lightbulb_outline),
+                                null,
+                                null,
+                                null )
+                    } else if (it.lamp3?.controle == 1) {
+                        txtLightMi.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                resources.getDrawable(R.drawable.ic_lightbulb_on_outline),
+                                null,
+                                null,
+                                null )
+                    }
+
+                    if (it.lamp4?.controle == 0) {
+                        txtLightFa.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                resources.getDrawable(R.drawable.ic_lightbulb_outline),
+                                null,
+                                null,
+                                null )
+                    } else if (it.lamp4?.controle == 1) {
+                        txtLightFa.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                resources.getDrawable(R.drawable.ic_lightbulb_on_outline),
+                                null,
+                                null,
+                                null )
+                    }
+
+                    if (it.lamp5?.controle == 0) {
+                        txtLightSol.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                resources.getDrawable(R.drawable.ic_lightbulb_outline),
+                                null,
+                                null,
+                                null )
+                    } else if (it.lamp5?.controle == 1) {
+                        txtLightSol.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                resources.getDrawable(R.drawable.ic_lightbulb_on_outline),
+                                null,
+                                null,
+                                null )
+                    }
+
+                    if (it.lamp6?.controle == 0) {
+                        txtLightLa.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                resources.getDrawable(R.drawable.ic_lightbulb_outline),
+                                null,
+                                null,
+                                null )
+                    } else if (it.lamp6?.controle == 1) {
+                        txtLightLa.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                resources.getDrawable(R.drawable.ic_lightbulb_on_outline),
+                                null,
+                                null,
+                                null )
+                    }
+
+                    if (it.lamp7?.controle == 0) {
+                        txtLightSi.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                resources.getDrawable(R.drawable.ic_lightbulb_outline),
+                                null,
+                                null,
+                                null )
+                    } else if (it.lamp7?.controle == 1) {
+                        txtLightSi.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                                resources.getDrawable(R.drawable.ic_lightbulb_on_outline),
+                                null,
+                                null,
+                                null )
+                    }
+                }
+
+                it.bancoCoolers?.let {
+                    if (it.controle?.controle == 0){
+                        txtCooler.text = "Desligado"
+                        txtCooler.setCompoundDrawablesRelativeWithIntrinsicBounds(resources.getDrawable(R.drawable.ic_fan_off),null,null,null )
+                    } else if (it.controle?.controle == 1){
+                        txtCooler.text = "Ligado"
+                        txtCooler.setCompoundDrawablesRelativeWithIntrinsicBounds(resources.getDrawable(R.drawable.ic_fan),null,null,null )
+                    }
+                }
+
+                it.servidor?.let {
+                    if (it.status?.status == 0){
+                        txtServer.text = "Desligado"
+                        txtServer.setCompoundDrawablesRelativeWithIntrinsicBounds(resources.getDrawable(R.drawable.ic_power_off),null,null,null )
+                    } else if (it.status?.status == 1){
+                        txtServer.text = "Ligado"
+                        txtServer.setCompoundDrawablesRelativeWithIntrinsicBounds(resources.getDrawable(R.drawable.ic_power_on),null,null,null )
+                    }
+                }
+
+                it.rackServidor?.let {
+                    if (it.status?.status == 0){
+                        txtRack.text = "Fechado"
+                        txtRack.setCompoundDrawablesRelativeWithIntrinsicBounds(resources.getDrawable(R.drawable.ic_lock_outline),null,null,null )
+                    } else if (it.status?.status == 1){
+                        txtRack.text = "Aberto"
+                        txtRack.setCompoundDrawablesRelativeWithIntrinsicBounds(resources.getDrawable(R.drawable.ic_lock_open_outline),null,null,null )
+                    }
+                }
+
+                it.sensorEnergia?.let {
+                    if (it.status?.status == 0){
+                        txtEnergy.text = "Sem luz"
+                        txtEnergy.setCompoundDrawablesRelativeWithIntrinsicBounds(resources.getDrawable(R.drawable.ic_power_plug_off),null,null,null )
+                    } else if (it.status?.status == 1){
+                        txtEnergy.text = "Com luz"
+                        txtEnergy.setCompoundDrawablesRelativeWithIntrinsicBounds(resources.getDrawable(R.drawable.ic_power_plug),null,null,null )
+                    }
+                }
             }
 
         }

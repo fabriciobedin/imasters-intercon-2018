@@ -7,8 +7,13 @@ import com.google.gson.annotations.SerializedName
  */
 class Result(
 @SerializedName("temperatura")
-var temperatura: TemperatureCtn?){
+var temperatura: TemperatureCtn?,
+var lampadas: Lampadas?,
+var bancoCoolers: BancoCoolers?,
+var servidor: Servidor?,
+var sensorEnergia: SensorEnergia?,
+var rackServidor: RackServidor?){
 
-    constructor() : this(null){
+    constructor() : this(null, null, null, null, null, null){
     }
 }
