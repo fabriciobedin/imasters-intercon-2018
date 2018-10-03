@@ -5,9 +5,9 @@ var horarioCompleto = require("./util/time");
 exports.iniciar = function(){
 
     relay = new five.Relay(41);
-    var ref = firebase.database().ref("bancoCoolers/controle");
+    var ref = firebase.database().ref("bancoCoolers/controle").child('controle');
 
-    ref.orderByKey().on("child_changed", function(snapshot) {
+    ref.orderByKey().on("value", function(snapshot) {
 
         if (snapshot.val() == 1) {
             relay.on();
