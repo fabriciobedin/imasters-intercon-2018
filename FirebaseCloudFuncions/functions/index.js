@@ -3,40 +3,72 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
-// See documentation on defining a message payload.
-var payload = {
-  data: {
-    value: 1
-  }
-};
-
-exports.alertChangeEnergy = 
-  functions.database.ref('/sensorEnergia/status/status')
-    .onUpdate((snapshot, context) => {
-      var newState = snapshot.val();
-      payload.data.value = newState;
-
+exports.alertRackOpen = functions.database.ref('/rackServidor/photo/status')
+    .onUpdate((change, context) => {
+      var newState = ""+change.after.val();
       admin.database().ref('/smartphones').once('value').then(
             function(snapshot) {
               var tokens = snapshot.val();
               if(tokens){
                   var currentToken;
-                  var data = [];
                   for(var key in tokens){
+                    
                     currentToken = tokens[key]
-                    admin.messaging().sendToDevice(currentToken, payload)
-                    .then(success => {
-                        return;
-                    })
+                    var message = {
+                      data: {
+                        rack: newState
+                      },
+                      token: currentToken
+                    };
+                    console.log(currentToken);
+                    admin.messaging().send(message)
                     .catch(error => {
-                        return;
+                      console.log(error);
                     });
                   }
               }
+              return change.after.ref.set(0);
+            })
+            .catch(error => {
+              console.log(error);              
             });
 
-      return;
-    });
+            return change.after.ref.set(0);
+      });
+
+
+exports.alertChangeEnergy = functions.database.ref('/sensorEnergia/status/status')
+    .onUpdate((change, context) => {
+      var newState = ""+change.after.val();
+      admin.database().ref('/smartphones').once('value').then(
+            function(snapshot) {
+              var tokens = snapshot.val();
+              if(tokens){
+                  var currentToken;
+                  for(var key in tokens){
+                    
+                    currentToken = tokens[key]
+                    var message = {
+                      data: {
+                        state: newState
+                      },
+                      token: currentToken
+                    };
+                    console.log(currentToken);
+                    admin.messaging().send(message)
+                    .catch(error => {
+                      console.log(error);
+                    });
+                  }
+              }
+              return change.after.ref.set(parseInt(change.after.val()));
+            })
+            .catch(error => {
+              console.log(error);              
+            });
+
+            return change.after.ref.set(parseInt(change.after.val()));
+      });
 
 exports.stopAlarm = functions.https.onRequest((request, response) => {
   admin.database().ref('/token').once('value').then(
@@ -52,7 +84,7 @@ exports.stopAlarm = functions.https.onRequest((request, response) => {
             response.send("{'sucess': false}");
             return;
         });
-
+        
         return;
       }
   ).catch(error => {
