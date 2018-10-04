@@ -114,6 +114,7 @@ function takePhoto(){
     lastSelfie = timeNow;  
     spaceRef.child("selfie.jpg").putString(snap, 'data_url').then(function(snapshot) {
           console.log('Uploaded a data_url string!');
+          firebase.database().ref('rackServidor/photo/').set({status: 1});
     });
   }
   
